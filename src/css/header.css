@@ -1,0 +1,12 @@
+.header {
+    background-color: var(--white);
+    flex-wrap: nowrap;
+    color: var(--veryDarkBlueText);
+    padding: var(--padding);
+    cursor: pointer;
+}
+
+.headerDark {
+    background-color: var(--darkBlueEl);
+    color: var(--white);
+}

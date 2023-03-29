@@ -1,0 +1,30 @@
+.countryDetail {
+    padding: var(--padding); z-index: 2;
+}
+
+.marginTop {
+    margin-top: 3rem;
+}
+
+.countryDetail img {
+    height: 45rem;
+    object-fit: cover;
+    width: 50%;
+}
+
+.backButton {
+    width: 12rem;
+    box-shadow: 0px 0px 29px -6px rgba(0, 0, 0, 0.57);
+    -webkit-box-shadow: 0px 0px 29px -6px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 0px 29px -6px rgba(0, 0, 0, 0.57);
+    padding: 0.7rem;
+    border-radius: 0.5rem;
+    cursor: default;
+    justify-content: center;
+}
+
+.detailBody {
+    margin-top: 5rem;
+    justify-content: flex-start;
+    gap: 5rem;
+}

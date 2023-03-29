@@ -1,0 +1,65 @@
+@import "./css/main.css";
+@import "./css/header.css";
+@import "./css/input.css";
+@import "./css/filter.css";
+@import "./css/country.css";
+
+/* WEBAPP RESPONSIVENESS */
+@media screen and (max-width: 1300px) {
+    .countries {
+        gap: 2rem;
+    }
+
+    .countries .card {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .countries {
+        gap: 1rem;
+    }
+
+    .countries .card {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .countries {
+        gap: 1rem;
+        justify-content: center;
+    }
+
+    .countries .card {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .input {
+        width: 100%;
+    }
+
+    .middle {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .countries .card {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 345px) {
+    .header {
+        padding: 1rem;
+    }
+
+    .countries {
+        padding: 1rem;
+    }
+}
