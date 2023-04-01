@@ -11,7 +11,12 @@ const Input = ({ bgState }) => {
           color: `${bgState ? "white" : "hsl(0, 0%, 52%)"}`,
         }}
       />
-      <input type="text" placeholder="Search for a country..." />
+      <input
+        type="text"
+        placeholder="Search for a country..."
+
+        spellCheck="false"
+      />
     </div>
   );
 };

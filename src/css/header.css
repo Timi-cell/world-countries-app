@@ -1,9 +1,8 @@
 .header {
     background-color: var(--white);
-    flex-wrap: nowrap;
     color: var(--veryDarkBlueText);
     padding: var(--padding);
-    cursor: pointer;
+    cursor: default;
 }
 
 .headerDark {

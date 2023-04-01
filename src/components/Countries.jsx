@@ -20,7 +20,7 @@ const Countries = ({ array, formatNumber }) => {
                       <span>Region</span>: {country.region}
                     </p>
                     <p>
-                      <span>Capital</span>: {country.capital}
+                      <span>Capital</span>: {country.capital || "No capital"}
                     </p>
                   </div>
                 </div>
@@ -30,6 +30,8 @@ const Countries = ({ array, formatNumber }) => {
         })}
       </div>
     );
+  } else {
+    return <h2>Country Not Found!</h2>;
   }
 };
 

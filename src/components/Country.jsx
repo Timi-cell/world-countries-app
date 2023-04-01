@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import * as DataArray from "../data.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
@@ -17,17 +17,25 @@ const Country = () => {
   }
   function showLanguages(languages) {
     // display the country's languages
-    let languageList = [];
-    for (let language of languages) languageList.push(language.name);
-    return languageList;
+    if (languages) {
+      let languageList = [];
+      for (let language of languages) languageList.push(language.name);
+      return languageList.join(", ");
+    } else {
+      return <p>No languages.</p>;
+    }
   }
   function showCurrencies(currencies) {
     // display the country's currencies
-    let currencyList = [];
-    for (let currency of currencies) {
-      currencyList.push(`${currency.name} (${currency.symbol})`);
+    if (currencies) {
+      let currencyList = [];
+      for (let currency of currencies) {
+        currencyList.push(`${currency.name} (${currency.symbol})`);
+      }
+      return currencyList.join(", ");
+    } else {
+      return <p>No currencies.</p>;
     }
-    return currencyList;
   }
   function showBorderCountries(borderArr) {
     // display the country's border countries
@@ -46,15 +54,15 @@ const Country = () => {
         <div style={{ display: "inline" }}>
           {borderCountriesList.map((borderCountry, index) => {
             return (
-              <p key={index} style={{ display: "inline" }}>
-                {borderCountry.name}
-              </p>
+              <Link to={`/${borderCountry.alpha3Code}`} key={index}>
+                <p className="border">{borderCountry.name}</p>
+              </Link>
             );
           })}
         </div>
       );
     } else {
-      return <p style={{ display: "inline" }}>No border countries</p>;
+      return <p style={{ display: "inline" }}>No border countries.</p>;
     }
   }
   function formatNumber(number, index, increase = 4) {
@@ -81,39 +89,54 @@ const Country = () => {
                   icon={faArrowLeftLong}
                   style={{ fontSize: "2rem" }}
                 />
-                <span style={{ marginLeft: "0.7rem" }}>Back</span>
+                <span style={{ marginLeft: "0.7rem", fontWeight: "600" }}>
+                  Back
+                </span>
               </div>
               <div className="detailBody rowFlex">
                 <img src={country.flag} alt={country.demonym} />
 
                 <div className="details">
-                  <h2 style={{ fontWeight: "800", fontSize: "3rem" }}>
+                  <h2 style={{ fontWeight: "800", fontSize: "4rem" }}>
                     {country.name}
                   </h2>
-                  <div
-                    className="rowFlex marginTop"
-                    style={{ alignItems: "flex-start" }}
-                  >
+                  <div className="detailsContent rowFlex marginTop">
                     <div>
-                      <p>Native Name: {country.nativeName} </p>
-                      <p>Population: {formatNumber(country.population, -3)}</p>
-                      <p>Region: {country.region} </p>
-                      <p>Sub Region: {country.subregion} </p>
-                      <p>Capital: {country.capital} </p>
-                    </div>
-                    <div>
-                      <p>Top Level Domain: {country.topLevelDomain}</p>
                       <p>
-                        Currencies:{" "}
-                        {showCurrencies(country.currencies).join(", ")}
+                        <span>Native Name:</span> {country.nativeName}{" "}
                       </p>
                       <p>
-                        Languages: {showLanguages(country.languages).join(", ")}
+                        <span>Population:</span>{" "}
+                        {formatNumber(country.population, -3)}
+                      </p>
+                      <p>
+                        <span>Region:</span> {country.region || "No region"}{" "}
+                      </p>
+                      <p>
+                        <span>Sub Region:</span>{" "}
+                        {country.subregion || "No subregion"}{" "}
+                      </p>
+                      <p>
+                        <span>Capital:</span> {country.capital || "No capital"}{" "}
+                      </p>
+                    </div>
+                    <div>
+                      <p>
+                        <span>Top Level Domain:</span> {country.topLevelDomain}
+                      </p>
+                      <p>
+                        <span>Currencies:</span>{" "}
+                        {showCurrencies(country.currencies)}
+                      </p>
+                      <p>
+                        <span>Languages:</span>{" "}
+                        {showLanguages(country.languages)}
                       </p>
                     </div>
                   </div>
-                  <div className="marginTop rowFlex">
-                    Border Countries: {showBorderCountries(country.borders)}
+                  <div className="marginTop">
+                    <span>Border Countries</span>{" "}
+                    {showBorderCountries(country.borders)}
                   </div>
                 </div>
               </div>

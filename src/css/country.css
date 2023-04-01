@@ -1,5 +1,15 @@
 .countryDetail {
-    padding: var(--padding); z-index: 2;
+    padding: var(--padding);
+    background-color: var(--veryLightGrayBg);
+}
+
+p {
+    margin-top: 1rem;
+    line-height: 1.5;
+}
+
+span {
+    font-weight: 800;
 }
 
 .marginTop {
@@ -14,17 +24,29 @@
 
 .backButton {
     width: 12rem;
-    box-shadow: 0px 0px 29px -6px rgba(0, 0, 0, 0.57);
-    -webkit-box-shadow: 0px 0px 29px -6px rgba(0, 0, 0, 0.57);
-    -moz-box-shadow: 0px 0px 29px -6px rgba(0, 0, 0, 0.57);
+    box-shadow: 0px 0px 14px 0px rgba(139, 135, 135, 0.73);
+    -webkit-box-shadow: 0px 0px 14px 0px rgba(139, 135, 135, 0.73);
+    -moz-box-shadow: 0px 0px 14px 0px rgba(139, 135, 135, 0.73);
     padding: 0.7rem;
     border-radius: 0.5rem;
     cursor: default;
     justify-content: center;
 }
 
-.detailBody {
+.countryDetail .detailBody {
     margin-top: 5rem;
     justify-content: flex-start;
     gap: 5rem;
+}
+ .countryDetail .detailsContent {
+    align-items: flex-start; gap: 10rem;
+ }
+.border {
+    border-radius: 0.5rem;
+    margin-top: 1rem;cursor: default;
+    width: 16.5rem;
+    padding: 0.3rem 0.8rem;
+    box-shadow: 0px 0px 14px 0px rgba(139, 135, 135, 0.73);
+    -webkit-box-shadow: 0px 0px 14px 0px rgba(139, 135, 135, 0.73);
+    -moz-box-shadow: 0px 0px 14px 0px rgba(139, 135, 135, 0.73);
 }

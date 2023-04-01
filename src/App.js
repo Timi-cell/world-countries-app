@@ -9,10 +9,9 @@ class App extends Component {
   state = {
     data: DataArray.default,
     change: false,
+
   };
-  componentDidMount() {
-    console.log(this.state.data);
-  }
+
   changeBg = () => {
     this.state.change
       ? this.setState({ change: false })
@@ -30,14 +29,22 @@ class App extends Component {
       arrayNum.splice(index - increase - increase - increase, 0, ",");
     return arrayNum.join("");
   };
+  updateQuery = (keyword) => {
+    this.setState({ keyword });
+    console.log(keyword);
+    this.filterCountriesBySearch();
+  };
+  filterCountriesBySearch = () => {
+    // implementing the search functionality.
 
+  };
   render() {
     return (
       <div>
         <Header changeBg={this.changeBg} bgState={this.state.change} />
         <div className={`main ${this.state.change ? "mainDark" : ""}`}>
           <div className="middle rowFlex">
-            <Input bgState={this.state.change} />
+            <Input bgState={this.state.change} updateQuery={this.updateQuery} />
             <Filter />
           </div>
           <Countries array={this.state.data} formatNumber={this.formatNumber} />

@@ -8,10 +8,12 @@
 @media screen and (max-width: 1300px) {
     .countries {
         gap: 2rem;
+        font-size: 2rem;
     }
 
     .countries .card {
         width: 30%;
+        height: 55rem;
     }
 }
 
@@ -61,5 +63,25 @@
 
     .countries {
         padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .countryDetail {
+        font-size: 2rem;
+    }
+
+    .countryDetail .detailBody,
+    .countryDetail .detailsContent {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .countryDetail img {
+        width: 100%;
+    }
+
+    .countryDetail .detailsContent {
+        gap: 3rem;
     }
 }

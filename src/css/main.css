@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 html {
@@ -51,6 +52,7 @@ body {
   flex-wrap: wrap;
   gap: 5rem;
   padding-top: var(--padding);
+
 }
 
 
@@ -59,15 +61,14 @@ body {
   width: 20%;
   margin: 0.5rem 0;
   padding-bottom: 2rem;
-  height: 40rem;
+  height: 50rem;
   border-radius: 0.5rem;
   box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.75);
-  overflow-y: hidden;
 }
 
-.countries .card img{
+.countries .card img {
   width: 100%;
   object-fit: cover;
   height: 60%;
