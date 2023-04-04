@@ -1,0 +1,29 @@
+.filterRegion {
+    height: 5rem;
+    box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.75);
+    border-radius: 0.5rem;
+    background-color: var(--white);
+    width: 20rem;
+}
+
+.filterRegion .select {
+    margin: 0 0.1rem 0 0;
+    padding: 0.5rem;
+    width: 100%;
+    border: none;
+    outline: none;
+}
+
+.filterRegionDark {
+    background-color: var(--veryDarkBlueBg);
+    box-shadow: 0px 0px 29px -6px rgba(0, 0, 0, 0.57);
+    -webkit-box-shadow: 0px 0px 29px -6px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 0px 29px -6px rgba(0, 0, 0, 0.57);
+}
+
+.filterRegionDark .select {
+    background-color: var(--veryDarkBlueBg);
+    color: var(--white);
+}

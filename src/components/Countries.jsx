@@ -1,20 +1,33 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const Countries = ({ array, formatNumber }) => {
-  if (array) {
+const Countries = ({ filtered }) => {
+  if (filtered.length === 0) {
+    return (
+      <h2
+        style={{
+          height: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        Country Not Found!
+      </h2>
+    );
+  } else {
     return (
       <div className="countries rowFlex">
-        {array.map((country, index) => {
+        {filtered.map((country, index) => {
           return (
             <div className="card" key={index}>
-              <Link to={`/${country.alpha3Code}`}>
+              <Link to={`/countries/${country.alpha3Code}`}>
                 <img src={country.flag} alt={country.demonym} />
                 <div className="card__info">
                   <h2 id="name">{country.name}</h2>
                   <div>
                     <p>
                       <span>Population</span>:{" "}
-                      {formatNumber(country.population, -3)}
+                      {country.population.toLocaleString("en-US")}
                     </p>
                     <p>
                       <span>Region</span>: {country.region}
@@ -30,8 +43,6 @@ const Countries = ({ array, formatNumber }) => {
         })}
       </div>
     );
-  } else {
-    return <h2>Country Not Found!</h2>;
   }
 };
 

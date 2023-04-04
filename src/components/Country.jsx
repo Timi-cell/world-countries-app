@@ -3,7 +3,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import * as DataArray from "../data.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
-import Header from "./Header";
+import SecondHeader from "./SecondHeader";
 const Country = () => {
   const { code } = useParams();
   const [data, updateData] = useState([]);
@@ -22,7 +22,7 @@ const Country = () => {
       for (let language of languages) languageList.push(language.name);
       return languageList.join(", ");
     } else {
-      return <p>No languages.</p>;
+      return <>No languages.</>;
     }
   }
   function showCurrencies(currencies) {
@@ -34,7 +34,7 @@ const Country = () => {
       }
       return currencyList.join(", ");
     } else {
-      return <p>No currencies.</p>;
+      return <>No currencies.</>;
     }
   }
   function showBorderCountries(borderArr) {
@@ -51,10 +51,10 @@ const Country = () => {
         }
       });
       return (
-        <div style={{ display: "inline" }}>
+        <div>
           {borderCountriesList.map((borderCountry, index) => {
             return (
-              <Link to={`/${borderCountry.alpha3Code}`} key={index}>
+              <Link to={`/countries/${borderCountry.alpha3Code}`} key={index}>
                 <p className="border">{borderCountry.name}</p>
               </Link>
             );
@@ -65,18 +65,7 @@ const Country = () => {
       return <p style={{ display: "inline" }}>No border countries.</p>;
     }
   }
-  function formatNumber(number, index, increase = 4) {
-    let stringedNumber = String(number);
-    let arrayNum = stringedNumber.split("");
-    if (arrayNum.length > 3) arrayNum.splice(index, 0, ",");
-    if (arrayNum.length > 3 + increase)
-      arrayNum.splice(index - increase, 0, ",");
-    if (arrayNum.length > 3 + increase + increase)
-      arrayNum.splice(index - increase - increase, 0, ",");
-    if (arrayNum.length > 3 + increase + increase + increase)
-      arrayNum.splice(index - increase - increase - increase, 0, ",");
-    return arrayNum.join("");
-  }
+
   function displayCountry() {
     let filteredData = data.filter((country) => country.alpha3Code === code);
     return (
@@ -107,7 +96,7 @@ const Country = () => {
                       </p>
                       <p>
                         <span>Population:</span>{" "}
-                        {formatNumber(country.population, -3)}
+                        {country.population.toLocaleString("en-US")}
                       </p>
                       <p>
                         <span>Region:</span> {country.region || "No region"}{" "}
@@ -134,7 +123,7 @@ const Country = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="marginTop">
+                  <div className="marginTop" style={{marginBottom:"2rem"}}>
                     <span>Border Countries</span>{" "}
                     {showBorderCountries(country.borders)}
                   </div>
@@ -148,7 +137,7 @@ const Country = () => {
   }
   return (
     <div>
-      <Header />
+      <SecondHeader />
       {displayCountry()}
     </div>
   );

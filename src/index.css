@@ -8,7 +8,7 @@
 @media screen and (max-width: 1300px) {
     .countries {
         gap: 2rem;
-        font-size: 2rem;
+        font-size: 1.65rem;
     }
 
     .countries .card {
@@ -19,7 +19,7 @@
 
 @media screen and (max-width: 900px) {
     .countries {
-        gap: 1rem;
+        gap: 1.5rem;
     }
 
     .countries .card {
@@ -35,6 +35,10 @@
 
     .countries .card {
         width: 80%;
+    }
+
+    .middle .filterRegion {
+        width: 20rem;
     }
 }
 

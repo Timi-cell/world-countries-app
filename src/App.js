@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Header from "./components/Header";
+import FirstHeader from "./components/FirstHeader";
 import Input from "./components/Input";
 import Filter from "./components/Filter";
 import * as DataArray from "./data.json";
@@ -9,7 +9,7 @@ class App extends Component {
   state = {
     data: DataArray.default,
     change: false,
-
+    filtered: DataArray.default,
   };
 
   changeBg = () => {
@@ -17,6 +17,65 @@ class App extends Component {
       ? this.setState({ change: false })
       : this.setState({ change: true });
   };
+  resetCountries = () => {
+    this.setState({ filtered: DataArray.default });
+  };
+  filterCountriesBySearch = (e) => {
+    // implementing the search functionality.
+    let text = e.target.value.toLowerCase();
+    if (text !== "") {
+      let data = this.state.data.filter((country) =>
+        !country.capital
+          ? country.name.toLowerCase().includes(text)
+          : country.capital.toLowerCase().includes(text) ||
+            country.name.toLowerCase().includes(text)
+      );
+      this.setState({ filtered: data });
+    } else {
+      this.resetCountries();
+    }
+  };
+
+  filterCountriesByRegion = () => {
+    // filter the countries by region/continents...
+    let select = document.getElementById("select");
+    let value = select.options[select.selectedIndex].value;
+    if (value !== "") {
+      let data = this.state.data.filter((country) => country.region === value);
+      this.setState({ filtered: data });
+    } else {
+      this.resetCountries();
+    }
+  };
+  render() {
+    return (
+      <div>
+        <FirstHeader
+          changeBg={this.changeBg}
+          bgState={this.state.change}
+          reset={this.resetCountries}
+        />
+        <div className={`main ${this.state.change ? "mainDark" : ""}`}>
+          <div className="middle rowFlex">
+            <Input
+              bgState={this.state.change}
+              filterCountries={this.filterCountriesBySearch}
+            />
+            <Filter
+              bgState={this.state.change}
+              filterByRegion={this.filterCountriesByRegion}
+            />
+          </div>
+          <Countries filtered={this.state.filtered} />
+        </div>
+      </div>
+    );
+  }
+}
+
+export default App;
+
+/*
   formatNumber = (number, index, increase = 4) => {
     let stringedNumber = String(number);
     let arrayNum = stringedNumber.split("");
@@ -29,38 +88,4 @@ class App extends Component {
       arrayNum.splice(index - increase - increase - increase, 0, ",");
     return arrayNum.join("");
   };
-  updateQuery = (keyword) => {
-    this.setState({ keyword });
-    console.log(keyword);
-    this.filterCountriesBySearch();
-  };
-  filterCountriesBySearch = () => {
-    // implementing the search functionality.
-
-  };
-  render() {
-    return (
-      <div>
-        <Header changeBg={this.changeBg} bgState={this.state.change} />
-        <div className={`main ${this.state.change ? "mainDark" : ""}`}>
-          <div className="middle rowFlex">
-            <Input bgState={this.state.change} updateQuery={this.updateQuery} />
-            <Filter />
-          </div>
-          <Countries array={this.state.data} formatNumber={this.formatNumber} />
-        </div>
-      </div>
-    );
-  }
-}
-
-export default App;
-
-/*
-FOR THE CARDS ON THE HOMEPAGE
-- Flag
-- Name
-- Population
-- Region
-- Capital
 */

@@ -38,12 +38,16 @@ span {
     justify-content: flex-start;
     gap: 5rem;
 }
- .countryDetail .detailsContent {
-    align-items: flex-start; gap: 10rem;
- }
+
+.countryDetail .detailsContent {
+    align-items: flex-start;
+    gap: 10rem;
+}
+
 .border {
     border-radius: 0.5rem;
-    margin-top: 1rem;cursor: default;
+    margin-top: 1rem;
+    cursor: default;
     width: 16.5rem;
     padding: 0.3rem 0.8rem;
     box-shadow: 0px 0px 14px 0px rgba(139, 135, 135, 0.73);

@@ -1,11 +1,13 @@
-.header {
+.header,
+.secondHeader {
     background-color: var(--white);
     color: var(--veryDarkBlueText);
     padding: var(--padding);
     cursor: default;
 }
 
-.headerDark {
+.headerDark,
+.secondHeaderDark {
     background-color: var(--darkBlueEl);
     color: var(--white);
 }

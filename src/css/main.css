@@ -50,16 +50,18 @@ body {
 
 .countries {
   flex-wrap: wrap;
+  justify-content: flex-start;
   gap: 5rem;
   padding-top: var(--padding);
-
 }
 
 
 .countries .card {
   cursor: pointer;
   width: 20%;
+  flex-grow: 1;
   margin: 0.5rem 0;
+  overflow: hidden;
   padding-bottom: 2rem;
   height: 50rem;
   border-radius: 0.5rem;
@@ -71,7 +73,7 @@ body {
 .countries .card img {
   width: 100%;
   object-fit: cover;
-  height: 60%;
+  height: 55%;
 }
 
 .countries .card .card__info {
@@ -109,4 +111,8 @@ body {
 
 .mainDark .card #name {
   color: var(--white);
+}
+
+.middle {
+  gap: 2rem;
 }
