@@ -28,6 +28,10 @@
 }
 
 @media screen and (max-width: 768px) {
+    .input {
+        font-size: 2rem;
+    }
+
     .countries {
         gap: 1rem;
         justify-content: center;
