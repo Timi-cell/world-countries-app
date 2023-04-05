@@ -4,7 +4,6 @@ import Input from "./components/Input";
 import Filter from "./components/Filter";
 import * as DataArray from "./data.json";
 import Countries from "./components/Countries";
-
 class App extends Component {
   state = {
     data: DataArray.default,

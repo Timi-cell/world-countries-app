@@ -5,6 +5,8 @@ import App from "./App";
 import PageNotFound from "./components/404Page";
 import Country from "./components/Country";
 import "./index.css";
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>

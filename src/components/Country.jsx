@@ -4,13 +4,19 @@ import * as DataArray from "../data.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import SecondHeader from "./SecondHeader";
+import { ThemeContext } from "../ThemeContext";
+
 const Country = () => {
   const { code } = useParams();
   const [data, updateData] = useState([]);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
     updateData(DataArray.default);
   }, []);
+  function toggleTheme() {
+    setIsDarkMode(!isDarkMode);
+  }
   function goBack() {
     // go to the previous page
     navigate(-1);
@@ -72,7 +78,12 @@ const Country = () => {
       <div>
         {filteredData.map((country, index) => {
           return (
-            <div key={index} className="countryDetail">
+            <div
+              key={index}
+              className={`countryDetail ${
+                isDarkMode ? "countryDetailDark" : ""
+              }`}
+            >
               <div className=" rowFlex backButton" onClick={goBack}>
                 <FontAwesomeIcon
                   icon={faArrowLeftLong}
@@ -123,7 +134,7 @@ const Country = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="marginTop" style={{marginBottom:"2rem"}}>
+                  <div className="marginTop" style={{ marginBottom: "2rem" }}>
                     <span>Border Countries</span>{" "}
                     {showBorderCountries(country.borders)}
                   </div>
@@ -137,8 +148,10 @@ const Country = () => {
   }
   return (
     <div>
-      <SecondHeader />
-      {displayCountry()}
+      <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
+        <SecondHeader />
+        {displayCountry()}
+      </ThemeContext.Provider>
     </div>
   );
 };

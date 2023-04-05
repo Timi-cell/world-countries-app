@@ -2,7 +2,10 @@
     padding: var(--padding);
     background-color: var(--veryLightGrayBg);
 }
-
+.countryDetailDark{
+    background-color: var(--veryDarkBlueBg);
+        color: var(--white);
+}
 p {
     margin-top: 1rem;
     line-height: 1.5;
