@@ -6,6 +6,12 @@
 
 /* WEBAPP RESPONSIVENESS */
 @media screen and (max-width: 1300px) {
+
+    .middle input,
+    .middle .filterRegion {
+        font-size: 2rem;
+    }
+
     .countries {
         gap: 2rem;
         font-size: 1.65rem;
@@ -18,10 +24,6 @@
 }
 
 @media screen and (max-width: 900px) {
-    .middle {
-        font-size: 2rem;
-    }
-
     .countries {
         gap: 1.5rem;
     }
