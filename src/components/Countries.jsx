@@ -5,10 +5,8 @@ const Countries = ({ filtered }) => {
     return (
       <h2
         style={{
-          height: "100vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+          textAlign: "center",
+          marginTop: "5rem",
         }}
       >
         Country Not Found!

@@ -8,7 +8,7 @@
 @media screen and (max-width: 1300px) {
 
     .middle input,
-    .middle .filterRegion {
+    .middle .filterRegion .select {
         font-size: 2rem;
     }
 
