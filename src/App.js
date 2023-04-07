@@ -21,7 +21,7 @@ class App extends Component {
   };
   filterCountriesBySearch = (e) => {
     // implementing the search functionality.
-    let text = e.target.value.toLowerCase();
+    let text = e.target.value.trim().toLowerCase();
     if (text !== "") {
       let data = this.state.data.filter((country) =>
         !country.capital
