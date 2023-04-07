@@ -4,7 +4,7 @@ const Filter = ({ bgState, filterByRegion }) => {
     <div
       className={`filterRegion rowFlex ${bgState ? "filterRegionDark" : ""}`}
     >
-      <select className="select" id="select" onClick={filterByRegion}>
+      <select className="select" id="select" onChange={filterByRegion}>
         <option value="">All Continents</option>
         <option value="Africa">Africa</option>
         <option value="Americas">America</option>
